@@ -222,7 +222,7 @@ variable "angular_vm-image" {
 }
 
 module "provision_proxy_angular_vm" {
-  source 							= "git::https://github.com/IBM-CAMHub-Open/terraform-modules.git?ref=1.0//vmware/proxy"
+  source 							= "git::https://github.com/IBM-CAMHub-Development/terraform-modules.git?ref=1.0//vmware/proxy"
   ip                  = "${var.angular_vm_ipv4_address}"
   id									= "${vsphere_virtual_machine.angular_vm.id}"
   ssh_user     				= "${var.angularjs_ssh_user}"
@@ -402,7 +402,7 @@ variable "mongodb_vm_image" {
 }
 
 module "provision_proxy_mongodb_vm" {
-  source 							= "git::https://github.com/IBM-CAMHub-Open/terraform-modules.git?ref=1.0//vmware/proxy"
+  source 							= "git::https://github.com/IBM-CAMHub-Development/terraform-modules.git?ref=1.0//vmware/proxy"
   ip                  = "${var.mongodb_vm_ipv4_address}"
   id									= "${vsphere_virtual_machine.mongodb_vm.id}"
   ssh_user     				= "${var.mongodb_ssh_user}"
@@ -631,7 +631,7 @@ variable "strongloop_vm-image" {
 }
 
 module "provision_proxy_strongloop_vm" {
-  source 							= "git::https://github.com/IBM-CAMHub-Open/terraform-modules.git?ref=1.0//vmware/proxy"
+  source 							= "git::https://github.com/IBM-CAMHub-Development/terraform-modules.git?ref=1.0//vmware/proxy"
   ip                  = "${var.strongloop_vm_ipv4_address}"
   id									= "${vsphere_virtual_machine.strongloop_vm.id}"
   ssh_user     				= "${var.strongloop_ssh_user}"

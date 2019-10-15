@@ -161,7 +161,7 @@ variable "nodejs_vm_image" {
 }
 
 module "provision_proxy_nodejs_vm" {
-  source 							= "git::https://github.com/IBM-CAMHub-Open/terraform-modules.git?ref=1.0//vmware/proxy"
+  source 							= "git::https://github.com/IBM-CAMHub-Development/terraform-modules.git?ref=1.0//vmware/proxy"
   ip                  = "${var.nodejs_vm_ipv4_address}"
   id									= "${vsphere_virtual_machine.nodejs_vm.id}"
   ssh_user     				= "${var.ssh_user}"
