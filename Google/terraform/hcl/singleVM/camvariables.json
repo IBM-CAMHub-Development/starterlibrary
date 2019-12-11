@@ -7,6 +7,11 @@
       "default": "centos-cloud/centos-7",
       "options": [
         {
+          "value": "ubuntu-os-cloud/ubuntu-1604-lts",
+          "label": "Ubuntu 16.04",
+          "default": true
+        },
+        {
           "value": "centos-cloud/centos-7",
           "label": "CentOS 7"
         },
@@ -21,11 +26,6 @@
         {
           "value": "suse-cloud/sles-12",
           "label": "SLES 12"
-        },
-        {
-          "value": "ubuntu-os-cloud/ubuntu-1604-lts",
-          "label": "Ubuntu 16.04",
-          "default": true
         }
       ],
       "type": "string",
