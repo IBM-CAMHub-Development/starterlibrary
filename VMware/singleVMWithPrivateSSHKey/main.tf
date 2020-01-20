@@ -6,11 +6,19 @@ provider "tls" {
   version = "~> 1.0"
 }
 
+provider "random" {
+  version = "~> 1.0"
+}
+
 locals{
 	private_ssh_key="${tls_private_key.generate.private_key_pem}"
 	public_ssh_key="${tls_private_key.generate.public_key_openssh}"
 }
 
+resource "random_string" "random-dir" {
+  length  = 8
+  special = false
+}
 resource "vsphere_virtual_machine" "vm" {
   name             = "${var.vm_name}"
   folder           = "${var.vm_folder}"
@@ -18,11 +26,11 @@ resource "vsphere_virtual_machine" "vm" {
   memory           = "${var.vm_memory}"
   resource_pool_id = "${data.vsphere_resource_pool.resource_pool.id}"
   datastore_id     = "${data.vsphere_datastore.datastore.id}"
-  guest_id         = "${data.vsphere_virtual_machine.vm_image_template.guest_id}"
-  scsi_type        = "${data.vsphere_virtual_machine.vm_image_template.scsi_type}"
+  guest_id         = "${data.vm_image_template.guest_id}"
+  scsi_type        = "${data.vm_image_template.scsi_type}"
 
   clone {
-    template_uuid = "${data.vsphere_virtual_machine.vm_image_template.id}"
+    template_uuid = "${data.vm_image_template.id}"
     timeout = "${var.vm_clone_timeout}"
     customize {
       linux_options {
@@ -140,7 +148,7 @@ EOF
   }
   
   provisioner "local-exec" {
-    command = "echo \"${self.clone.0.customize.0.network_interface.0.ipv4_address}       ${self.name}.${var.vm_domain_name} ${self.name}\" >> /tmp/${var.random}/hosts"
+    command = "echo \"${self.clone.0.customize.0.network_interface.0.ipv4_address}       ${self.name}.${var.vm_domain_name} ${self.name}\" >> /tmp/${random_string.random-dir.result}/hosts"
   }
 }
 

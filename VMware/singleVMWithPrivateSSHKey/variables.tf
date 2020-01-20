@@ -5,7 +5,7 @@ data "vsphere_datastore" "datastore" {
   name = "${var.datastore}" 
   datacenter_id = "${data.vsphere_datacenter.datacenter.id}"
 }
-data "vsphere_resource_pool" "vsphere_resource_pool" {
+data "vsphere_resource_pool" "resource_pool" {
   name = "${var.resource_pool}"
   datacenter_id = "${data.vsphere_datacenter.datacenter.id}"
 }
