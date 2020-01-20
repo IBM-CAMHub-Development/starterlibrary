@@ -71,17 +71,6 @@
       "group_name": "custom_vm_attributes"
     },
     {
-      "name": "vm_disk_datastore",
-      "label": "Disk Datastore Name",
-      "type": "string",
-      "description": "Disk datastore name.",
-      "required": true,
-      "secured": false,
-      "hidden": false,
-      "immutable": false,
-      "group_name": "custom_vm_attributes"
-    },
-    {
       "name": "vm_disk_size",
       "label": "Disk Size (GB)",
       "type": "string",
