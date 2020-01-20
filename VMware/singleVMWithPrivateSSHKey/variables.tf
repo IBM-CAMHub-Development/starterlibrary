@@ -48,11 +48,6 @@ variable "vm_disk_keep_on_remove" {
   default = "false"
 }
 
-variable "vm_" {
-  type = "string" 
-}
-
-
 variable "vm_ipv4_gateway" {
   type = "string"
 }
