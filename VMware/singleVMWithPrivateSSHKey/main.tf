@@ -152,10 +152,6 @@ rm -rf $user_auth_key_file_private_temp
 
 EOF
   }
-  
-  provisioner "local-exec" {
-    command = "echo \"${self.clone.0.customize.0.network_interface.0.ipv4_address}       ${self.name}.${var.vm_domain_name} ${self.name}\" >> /tmp/${random_string.random-dir.result}/hosts"
-  }
 }
 
 resource "null_resource" "add_ssh_key" {
