@@ -7,6 +7,36 @@ variable "vm_name" {
   type = "string" 
 }
 
+variable "vm_ipv4_address" {
+  type = "string" 
+}
+
+
+variable "vm_memory" {
+  type = "string" 
+}
+
+variable "vm_vcpu" {
+  type = "string" 
+}
+
+variable "vm_disk_datastore" {
+  type = "string" 
+}
+
+variable "vm_disk_size" {
+  type = "string" 
+}
+
+variable "vm_disk_keep_on_remove" {
+  type = "string" 
+}
+
+variable "vm_" {
+  type = "string" 
+}
+
+
 variable "vm_ipv4_gateway" {
   type = "string"
 }

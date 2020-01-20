@@ -48,8 +48,8 @@ resource "vsphere_virtual_machine" "vm" {
 
   disk {
     label          = "${var.vm_name}.vmdk"
-    size           = "${var.vm_disk1_size}"
-    keep_on_remove = "${var.vm_disk1_keep_on_remove}"
+    size           = "${var.vm_disk_size}"
+    keep_on_remove = "${var.vm_disk_keep_on_remove}"
     datastore_id   = "${data.vsphere_datastore.datastore.id}"
   }
 

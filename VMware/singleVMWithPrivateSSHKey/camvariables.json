@@ -47,6 +47,65 @@
       "group_name": "custom_vm_attributes"
     },
     {
+      "name": "vm_memory",
+      "label": "VM Memory Allocation (MB)",
+      "type": "string",
+      "description": "VM Memory Allocation (MB).",
+      "required": true,
+      "secured": false,
+      "hidden": false,
+      "immutable": false,
+      "default": "1024",
+      "group_name": "custom_vm_attributes"
+    },
+    {
+      "name": "vm_vcpu",
+      "label": "VM vCPU Allocation",
+      "type": "string",
+      "description": "VM vCPU Allocation.",
+      "required": true,
+      "secured": false,
+      "hidden": false,
+      "immutable": false,
+      "default": "1",
+      "group_name": "custom_vm_attributes"
+    },
+    {
+      "name": "vm_disk_datastore",
+      "label": "Disk Datastore Name",
+      "type": "string",
+      "description": "Disk datastore name.",
+      "required": true,
+      "secured": false,
+      "hidden": false,
+      "immutable": false,
+      "group_name": "custom_vm_attributes"
+    },
+    {
+      "name": "vm_disk_keep_on_remove",
+      "label": "infranode_vm_disk_keep_on_remove",
+      "type": "string",
+      "description": "",
+      "required": true,
+      "secured": false,
+      "hidden": true,
+      "immutable": false,
+      "default": "false",
+      "group_name": "custom_vm_attributes"
+    },
+    {
+      "name": "vm_disk_size",
+      "label": "Disk Size (GB)",
+      "type": "string",
+      "description": "Disk Size (GB).",
+      "required": true,
+      "secured": false,
+      "hidden": false,
+      "immutable": false,
+      "default": "20",
+      "group_name": "custom_vm_attributes"
+    },
+    {
       "name": "datacenter",
       "default":"${vsphere_managed_inventory_definition.datacenter}",
       "description": "The name of a datacenter in which to create the virtual machine and other assets.",
