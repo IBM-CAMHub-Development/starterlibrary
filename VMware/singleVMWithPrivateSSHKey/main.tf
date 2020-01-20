@@ -26,11 +26,11 @@ resource "vsphere_virtual_machine" "vm" {
   memory           = "${var.vm_memory}"
   resource_pool_id = "${data.vsphere_resource_pool.resource_pool.id}"
   datastore_id     = "${data.vsphere_datastore.datastore.id}"
-  guest_id         = "${data.vm_image_template.guest_id}"
-  scsi_type        = "${data.vm_image_template.scsi_type}"
+  guest_id         = "${data.vsphere_virtual_machine.vm_image_template.guest_id}"
+  scsi_type        = "${data.vsphere_virtual_machine.vm_image_template.scsi_type}"
 
   clone {
-    template_uuid = "${data.vm_image_template.id}"
+    template_uuid = "${data.vsphere_virtual_machine.vm_image_template.id}"
     timeout = "${var.vm_clone_timeout}"
     customize {
       linux_options {

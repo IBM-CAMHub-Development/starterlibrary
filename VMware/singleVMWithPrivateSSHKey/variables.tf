@@ -13,7 +13,7 @@ data "vsphere_network" "vm_network" {
   name = "${var.network}"
   datacenter_id = "${data.vsphere_datacenter.datacenter.id}"
 }
-data "vsphere_virtual_machine" "vm_template" {
+data "vsphere_virtual_machine" "vm_image_template" {
   name = "${var.vm_image_template}"
   datacenter_id = "${data.vsphere_datacenter.datacenter.id}"
 }
