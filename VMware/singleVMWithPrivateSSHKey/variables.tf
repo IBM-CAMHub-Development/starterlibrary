@@ -45,6 +45,7 @@ variable "vm_disk_size" {
 
 variable "vm_disk_keep_on_remove" {
   type = "string" 
+  default = "false"
 }
 
 variable "vm_" {
