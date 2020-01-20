@@ -1,5 +1,24 @@
+data "vsphere_datacenter" "datacenter" {
+  name = "${var.datacenter}"
+}
+data "vsphere_datastore" "datastore" {
+  name = "${var.datastore}" 
+  datacenter_id = "${data.vsphere_datacenter.datacenter.id}"
+}
+data "vsphere_resource_pool" "vsphere_resource_pool" {
+  name = "${var.resource_pool}"
+  datacenter_id = "${data.vsphere_datacenter.datacenter.id}"
+}
+data "vsphere_network" "vm_network" {
+  name = "${var.network}"
+  datacenter_id = "${data.vsphere_datacenter.datacenter.id}"
+}
+data "vsphere_virtual_machine" "vm_template" {
+  name = "${var.vm_image_template}"
+  datacenter_id = "${data.vsphere_datacenter.datacenter.id}"
+}
 variable "allow_unverified_ssl" {
-  description = "Communication with vsphere server with self signed certificate"
+  description = "Communication with vSphere server with self signed certificate"
   default     = "true"
 }
 
@@ -17,10 +36,6 @@ variable "vm_memory" {
 }
 
 variable "vm_vcpu" {
-  type = "string" 
-}
-
-variable "vm_disk_datastore" {
   type = "string" 
 }
 

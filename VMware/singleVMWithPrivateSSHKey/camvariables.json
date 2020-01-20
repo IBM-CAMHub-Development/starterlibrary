@@ -82,18 +82,6 @@
       "group_name": "custom_vm_attributes"
     },
     {
-      "name": "vm_disk_keep_on_remove",
-      "label": "infranode_vm_disk_keep_on_remove",
-      "type": "string",
-      "description": "",
-      "required": true,
-      "secured": false,
-      "hidden": true,
-      "immutable": false,
-      "default": "false",
-      "group_name": "custom_vm_attributes"
-    },
-    {
       "name": "vm_disk_size",
       "label": "Disk Size (GB)",
       "type": "string",
