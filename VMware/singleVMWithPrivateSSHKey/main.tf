@@ -19,6 +19,12 @@ resource "random_string" "random-dir" {
   length  = 8
   special = false
 }
+
+resource "tls_private_key" "generate" {
+  algorithm = "RSA"
+  rsa_bits  = "4096"
+}
+
 resource "vsphere_virtual_machine" "vm" {
   name             = "${var.vm_name}"
   folder           = "${var.vm_folder}"
