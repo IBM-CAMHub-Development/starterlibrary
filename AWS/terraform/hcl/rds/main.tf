@@ -16,6 +16,11 @@ variable "instance_name" {
   default = "mysql-camdb"
 }
 
+variable "license_model" {
+  type    = string
+  default = ""
+}
+
 variable "db_engine" {
   type    = string
   default = "mysql"
@@ -31,8 +36,8 @@ variable "instance_class" {
 }
 
 variable "allocated_storage" {
-  type    = number
-  default = 10
+  type    = string
+  default = "10"
 }
 
 variable "username" {
@@ -67,14 +72,13 @@ variable "skip_final_snapshot" {
 
 variable "final_snapshot_identifier" {
   type    = string
-  default = "0"
-}
+ }
 
 
 resource "aws_db_instance" "db_instance" {
   name                   	= var.instance_name
-  identifier_prefix      	= lower(var.instance_name)
-  allocated_storage      	= var.allocated_storage
+  identifier_prefix      	= var.instance_name != "" ? lower(var.instance_name) : null
+  allocated_storage      	= var.allocated_storage != "" ? tonumber(var.allocated_storage) : null
   engine                 	= var.db_engine
   engine_version         	= var.engine_version
   instance_class         	= var.instance_class
@@ -85,7 +89,8 @@ resource "aws_db_instance" "db_instance" {
   vpc_security_group_ids 	= var.vpc_security_group_ids
   skip_final_snapshot    	= var.skip_final_snapshot
   snapshot_identifier    	= var.snapshot_identifier
-  final_snapshot_identifier	= var.final_snapshot_identifier 
+  final_snapshot_identifier	= var.final_snapshot_identifier != "" ? var.final_snapshot_identifier : null
+  license_model             = var.license_model
 }
 
 
