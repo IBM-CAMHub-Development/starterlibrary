@@ -183,7 +183,7 @@
 			"hidden": false,
 			"immutable": false,
 			"default": "camdb",
-			"regex": "^[A-Za-z][A-Za-z0-9]+$",
+			"regex": "^[A-Za-z][A-Za-z0-9]*$",
 			"regexdesc": "Must begin with a letter and contain only alphanumeric characters."
 		}, {
 			"group_name": "new",
@@ -194,7 +194,9 @@
 			"required": false,
 			"secured": false,
 			"hidden": false,
-			"immutable": false
+			"immutable": false,
+			"regex": "^[A-Za-z][A-Za-z0-9]{0,15}$",
+			"regexdesc": "Must begin with a letter and contain only alphanumeric characters. Maximum length is 16 characters."
 		}, {
 			"group_name": "new",
 			"name": "password",
@@ -204,7 +206,9 @@
 			"required": false,
 			"secured": true,
 			"hidden": false,
-			"immutable": false
+			"immutable": false,
+			"regex": "^((?!['\"/@])[\\x00-\\x7F]){8,}$",
+			"regexdesc": "At least 8 ASCII characters. Can't contain any of the following: forward slash, single quote, double quote and @."
 		}, {
 			"group_name": "common",
 			"name": "publicly_accessible",
@@ -227,8 +231,8 @@
 			"hidden": false,
 			"immutable": false,
 			"default": "delete-snapshot",
-			"regex": "^[A-Za-z0-9-]+$",
-			"regexdesc": "Only alphanumeric characters and hyphens allowed."
+			"regex": "^((?!.*--)[A-Za-z][A-Za-z0-9-]*(?<!-))$",
+			"regexdesc": "Only alphanumeric characters and hyphens allowed. First character must be a letter. Cannot end with a hyphen or contain two consecutive hyphens."
 		}, {
 			"group_name": "common",
 			"name": "skip_final_snapshot",
