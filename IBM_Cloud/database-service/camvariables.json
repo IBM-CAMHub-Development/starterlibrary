@@ -9,8 +9,7 @@
       "required": true,
       "secured": false,
       "hidden": false,
-      "immutable": false,
-      "default": "Default"
+      "immutable": false
     },
     {
       "name": "db_location",
@@ -144,8 +143,8 @@
       "secured": false,
       "hidden": false,
       "immutable": false,
-      "regex": "^((?!['\"/@])[\\x00-\\x7F]){8,}$",
-      "regexdesc": "At least 8 ASCII characters. Can't contain any of the following: forward slash, single quote, double quote and @."
+      "regex": "^((?!['\"/@])[\\x00-\\x7F]){10,32}$",
+      "regexdesc": "At least 10 ASCII characters and maximum of 32 characters. Can't contain any of the following: forward slash, single quote, double quote and @."
     },
     {
       "name": "members_memory_allocation_mb",

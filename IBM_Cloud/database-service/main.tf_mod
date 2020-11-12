@@ -5,6 +5,7 @@
 provider "ibm" {
   region     = var.db_location
   generation = 2
+  version = ">= 1.0.0"
 }
 
 module "camtags" {
