@@ -45,7 +45,7 @@ resource "ibm_is_subnet" "cam_subnet" {
   name            = "cam-subnet-${random_integer.key.result}"
   vpc             = ibm_is_vpc.cam_vpc.id
   zone            = var.zone
-  ipv4_cidr_block = "10.241.0.0/24"
+  total_ipv4_address_count = 8
 }
 
 #Create SSHKey
