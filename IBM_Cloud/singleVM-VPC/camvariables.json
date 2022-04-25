@@ -1,0 +1,176 @@
+{
+    "terraform_version": ">= 0.13.0",
+    "template_input_params": [
+      {
+        "name": "resource_prefix",
+        "label": "Instance Name Prefix",
+        "description": "The name to be prefixed to the VPC Server Instance and all the related resources like VPC, Subnet that will be created by this template.",
+        "type": "string",
+        "default": "cam",
+        "required": true,
+        "secured": false,
+        "hidden": false,
+        "immutable": false,
+        "immutable_after_create": false,
+        "regex": "^([a-z]|[a-z]([-a-z0-9]){0,18}([a-z0-9]))$",
+        "regexdesc": "Use lowercase alphanumeric characters and hyphens only. Must begin with a lower case alphabetic character and end with lowercase alphanumeric character. Maximum length is 20 characters."
+      },      
+      {
+        "name": "image_name",
+        "label": "OS Image Name",
+        "description": "The name of the IBM Cloud OS image from which the Virtual Servers for Virtual Private Cloud will be created. See IBM Cloud documentation for more details on valid values for this attribute.",
+        "type": "string",
+        "default": "ibm-debian-9-0-64-minimal-for-vsi",
+        "required": true,
+        "secured": false,
+        "hidden": false,
+        "immutable": false,
+        "immutable_after_create": false
+      },
+      {
+        "name": "profile",
+        "label": "Virtual Server Instance Profile",
+        "description": "IBM Cloud virtual server profile to be applied to your virtual server. A profile is a combination of instance attributes, such as the number of vCPUs, amount of RAM, and more that can be used to start a virtual server instance. See IBM Cloud documentation for more details on valid values for this attribute.",
+        "type": "string",
+        "default": "bx2-2x8",
+        "required": true,
+        "secured": false,
+        "hidden": false,
+        "immutable": false,
+        "immutable_after_create": false
+      },
+      {
+        "name": "region",
+        "label": "Region",
+        "description": "IBM Cloud region to create your virtual server instance in.",
+        "type": "string",
+        "required": true,
+        "secured": false,
+        "hidden": false,
+        "immutable": false,
+        "immutable_after_create": false,
+        "options": [
+          {
+            "value": "au-syd",
+            "label": "Australia (Sydney)"
+          }, {
+            "value": "jp-tok",
+            "label": "Japan (Tokyo)"
+          }, {
+            "value": "eu-de",
+            "label": "Germany (Frankfurt)"
+          }, {
+            "value": "eu-gb",
+            "label": "United Kingdom (London)"
+          }, {
+            "value": "us-south",
+            "label": "United States (Dallas)",
+            "default": true
+          }, {
+            "value": "us-east",
+            "label": "United States (Washington DC)"
+          }
+        ]        
+      },
+      {
+        "name": "zone",
+        "label": "Availability Zone (Must match the region selected)",
+        "description": "IBM Cloud availability Zone to create your virtual server instance in. The zone value must be in the selected region.",
+        "type": "string",
+        "required": true,
+        "secured": false,
+        "hidden": false,
+        "immutable": false,
+        "immutable_after_create": false,
+        "options": [
+          {
+            "value": "au-syd-1",
+            "label": "Australia (Sydney 1)"
+          }, 				{
+            "value": "au-syd-2",
+            "label": "Australia (Sydney 2)"
+          },				{
+            "value": "au-syd-3",
+            "label": "Australia (Sydney 3)"
+          },{
+            "value": "jp-tok-1",
+            "label": "Japan (Tokyo 1)"
+          }, {
+            "value": "jp-tok-2",
+            "label": "Japan (Tokyo 2)"
+          },{
+            "value": "jp-tok-3",
+            "label": "Japan (Tokyo 3)"
+          },{
+            "value": "eu-de-1",
+            "label": "Germany (Frankfurt 1)"
+          }, {
+            "value": "eu-de-2",
+            "label": "Germany (Frankfurt 2)"
+          },{
+            "value": "eu-de-3",
+            "label": "Germany (Frankfurt 3)"
+          },{
+            "value": "eu-gb-1",
+            "label": "United Kingdom (London 1)"
+          }, {
+            "value": "eu-gb-2",
+            "label": "United Kingdom (London 2)"
+          },{
+            "value": "eu-gb-3",
+            "label": "United Kingdom (London 3)"
+          },{
+            "value": "us-south-1",
+            "label": "United States (Dallas 1)",
+            "default": true
+          }, {
+            "value": "us-south-2",
+            "label": "United States (Dallas 2)"
+          }, {
+            "value": "us-south-3",
+            "label": "United States (Dallas 3)"
+          }, {
+            "value": "us-east-1",
+            "label": "United States (Washington DC 1)"
+          },{
+            "value": "us-east-2",
+            "label": "United States (Washington DC 2)"
+          },{
+            "value": "us-east-3",
+            "label": "United States (Washington DC 3)"
+          }
+        ]
+      },
+      {
+        "name": "public_ssh_key",
+        "label": "Public SSH key",
+        "description": "Public SSH key to be set in the virtual server instance.",
+        "type": "string",
+        "required": true,
+        "secured": false,
+        "hidden": false,
+        "immutable": false,
+        "immutable_after_create": false
+      }
+    ],
+    "template_output_params": [
+      {
+        "name": "server_floating_ip_address",
+        "label": "Virtual Server Instance Floating IP address",
+        "description": "",
+        "secured": false,
+        "hidden": false,
+        "shortname": "",
+        "type": "string"
+      },
+      {
+        "name": "server_private_ip_address",
+        "label": "Virtual Server Instance Private IP address",
+        "description": "",
+        "secured": false,
+        "hidden": false,
+        "shortname": "",
+        "type": "string"
+      }
+    ]
+  }
